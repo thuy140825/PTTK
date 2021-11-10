@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//WebContent/admin/jsp/inc/footer.html=UTF-8
+encoding//WebContent/admin/jsp/inc/navbar.html=UTF-8
+encoding//WebContent/admin/jsp/orders-management.jsp=UTF-8
+encoding//WebContent/admin/jsp/products-management.jsp=UTF-8
+encoding//WebContent/client/jsp/invoice-details.jsp=UTF-8
+encoding//WebContent/client/jsp/listProduct.jsp=UTF-8
+encoding//src/errors.properties=UTF-8
+encoding/<project>=UTF-8
