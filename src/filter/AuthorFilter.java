@@ -26,28 +26,26 @@ public class AuthorFilter implements Filter {
     public AuthorFilter() {
     }
 
-	public void destroy() {
-	}
+    public void destroy() {
+    }
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
-		HttpServletRequest req = (HttpServletRequest) request;
-		HttpServletResponse res = (HttpServletResponse) response;
-		
-		HttpSession session = req.getSession();
-		if(session.getAttribute("login_user") == null) { // nếu chưa đăng nhập
-			res.sendRedirect("/eshop/login");
-		} else {
-			UserDAO userDao = new UserDAOImpl();
-			String username = session.getAttribute("login_user").toString();
-			Customer user = userDao.getUserByUserName(username);
-			if(user.getIsAdmin()== Constants.USER_ROLE) { // nếu đã đăng nhập và là user
-				res.sendRedirect("/eshop/home");
-			} else chain.doFilter(request, response); // là admin
-		}
-	}
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
 
-	public void init(FilterConfig fConfig) throws ServletException {
-	}
+        HttpSession session = req.getSession();
+        if(session.getAttribute("login_user") == null) { // nếu chưa đăng nhập
+                res.sendRedirect("/eshop/login");
+        } else {
+                UserDAO userDao = new UserDAOImpl();
+                String username = session.getAttribute("login_user").toString();
+                Customer user = userDao.getUserByUserName(username);
+                if(user.getIsAdmin()== Constants.USER_ROLE) { // nếu đã đăng nhập và là user
+                        res.sendRedirect("/eshop/home");
+                } else chain.doFilter(request, response); // là admin
+        }
+    }
 
+    public void init(FilterConfig fConfig) throws ServletException {
+    }
 }

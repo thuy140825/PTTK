@@ -27,46 +27,44 @@ public class OrdersManagementController extends HttpServlet {
         orderDao = new OrderDAOImpl();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int id = 0;
-		if(request.getParameter("id") != null)
-			id = Integer.parseInt(request.getParameter("id")); // id cua user
-		
-		List<OrderDTO> orders = null;
-		
-		if(id > 0) { // neu co order id
-			orders = orderDao.getOrdersByUserId(id);
-			UserDAO userDao = new UserDAOImpl();
-			String buyer = userDao.getUserFullNameByIdUser(id);
-			request.setAttribute("buyer", buyer);
-		}
-		else orders = orderDao.getAllOrders();
-		
-		request.setAttribute("orders", orders);
-		
-		request.getRequestDispatcher("./jsp/orders-management.jsp").forward(request, response);
-		
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.setContentType("text/html;charset=UTF-8");
-		// ajax change order status
-		String value = request.getParameter("status");
-		String orderid = request.getParameter("id");
-		if(value != null && orderid != null) {
-			
-			int id = Integer.parseInt(orderid);
-			int status = Integer.parseInt(value);
-			
-			orderDao.updateOrderStatus(id, status);
-		}
-		
-		List<OrderDTO> orders = orderDao.getAllOrders();
-		request.setAttribute("orders", orders);
-		
-		request.getRequestDispatcher("./jsp/table-order.jsp").forward(request, response);
-	}
+        int id = 0;
+        if(request.getParameter("id") != null)
+            id = Integer.parseInt(request.getParameter("id")); // id cua user
+
+        List<OrderDTO> orders = null;
+
+        if(id > 0) { // neu co order id
+            orders = orderDao.getOrdersByUserId(id);
+            UserDAO userDao = new UserDAOImpl();
+            String buyer = userDao.getUserFullNameByIdUser(id);
+            request.setAttribute("buyer", buyer);
+        }
+        else orders = orderDao.getAllOrders();
+
+        request.setAttribute("orders", orders);
+
+        request.getRequestDispatcher("./jsp/orders-management.jsp").forward(request, response);
+
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType("text/html;charset=UTF-8");
+        // ajax change order status
+        String value = request.getParameter("status");
+        String orderid = request.getParameter("id");
+        if(value != null && orderid != null) {
+            int id = Integer.parseInt(orderid);
+            int status = Integer.parseInt(value);
+            orderDao.updateOrderStatus(id, status);
+        }
+
+        List<OrderDTO> orders = orderDao.getAllOrders();
+        request.setAttribute("orders", orders);
+
+        request.getRequestDispatcher("./jsp/table-order.jsp").forward(request, response);
+    }
 
 }

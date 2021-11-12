@@ -21,23 +21,21 @@ public class AuthenFilter implements Filter {
     public AuthenFilter() {
     }
 
-	public void destroy() {
-	}
+    public void destroy() {
+    }
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
-		HttpServletRequest req = (HttpServletRequest) request;
-		HttpServletResponse res = (HttpServletResponse) response;
-		
-		HttpSession session = req.getSession();
-		if(session.getAttribute("login_user") == null) 	// neu nguoi dung chua dang nhap
-			res.sendRedirect("login");  				// thi chuyen sang trang dang nhap
-		else chain.doFilter(request, response);			// neu nguoi dung da dang nhap
-		
-	}
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
 
-	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
-	}
+        HttpSession session = req.getSession();
+        if(session.getAttribute("login_user") == null) 	// neu nguoi dung chua dang nhap
+                res.sendRedirect("login");  				// thi chuyen sang trang dang nhap
+        else chain.doFilter(request, response);			// neu nguoi dung da dang nhap
+    }
+
+    public void init(FilterConfig fConfig) throws ServletException {
+            // TODO Auto-generated method stub
+    }
 
 }

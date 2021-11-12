@@ -10,27 +10,27 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet({"/logout","/admin/logout"})
 public class LogoutController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
        
     public LogoutController() {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession();
-		if(session.getAttribute("login_user") != null) {
-			session.removeAttribute("login_user");
-			session.removeAttribute("spam");
-			session.removeAttribute("count_spam");
-			session.removeAttribute("last_request");
-		}
-		
-		response.sendRedirect("./");
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+        HttpSession session = request.getSession();
+        if(session.getAttribute("login_user") != null) {
+            session.removeAttribute("login_user");
+            session.removeAttribute("spam");
+            session.removeAttribute("count_spam");
+            session.removeAttribute("last_request");
+        }
+
+        response.sendRedirect("./");
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
 
 }

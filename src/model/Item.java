@@ -4,59 +4,58 @@ import java.io.Serializable;
 
 public class Item implements Serializable{
 	
-	private static final long serialVersionUID = 4L;
-	private int id;
-	private Product product;
-	private int quantity;
-	private double price;
+    private static final long serialVersionUID = 4L;
+    private int id;
+    private Product product;
+    private int quantity;
+    private double price;
 
-	public Item() {
-		super();
-	}
-	
-	public Item(int id, Product product, int quantity, double price) {
-		super();
-		this.id = id;
-		this.product = product;
-		this.quantity = quantity;
-		this.price = price;
-	}
+    public Item() {
+        super();
+    }
 
-	public int getId() {
-		return id;
-	}
+    public Item(int id, Product product, int quantity, double price) {
+        super();
+        this.id = id;
+        this.product = product;
+        this.quantity = quantity;
+        this.price = price;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public Product getProduct() {
-		return product;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+    public Product getProduct() {
+        return product;
+    }
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	public double getPrice() {
-		return price;
-	}
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    public double getPrice() {
+        return price;
+    }
 
-	@Override
-	public String toString() {
-		return "Item [id=" + id + ", product=" + product + ", quantity=" + quantity + ", price=" + price + "]";
-	}
-	
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Item [id=" + id + ", product=" + product + ", quantity=" + quantity + ", price=" + price + "]";
+    }
 }
