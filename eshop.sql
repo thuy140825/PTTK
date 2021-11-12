@@ -94,7 +94,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Giày nam'),(2,'Giày nữ'),(3,'Giày cho bé'),(4,'Giày thể thao'),(5,'Giày lười'),(6,'Giày Sneaker');
+INSERT INTO `category` VALUES (1,'Apple'),(2,'Xiaomi'),(3,'Samsung'),(4,'Vivo'),(5,'Realme'),(6,'Oppo');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,8 +165,9 @@ CREATE TABLE `product` (
   `categoryID` int NOT NULL,
   `price` double NOT NULL,
   `details` varchar(500) DEFAULT NULL,
+  `img` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,7 +176,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'Giày thể thao vải có dây Blue',4,129000,'Giày thể thao vải có dây Blue rất đẹp'),(2,'Giày Stan Smith xanh lá đế bạc',1,218000,'Giày Stan Smith xanh lá đế bạc sản xuất tại Trung Quốc'),(3,'Giày Nam Da Trắng Xịn - Form Đẹp C01',1,99000,'Giày thể thao vải có dây Blue rất đẹp'),(4,'Giày Da Trắng Quảng Châu Cao Cấp',4,408000,'Giày Stan Smith xanh lá đế bạc sản xuất tại Trung Quốc'),(5,'Giầy Nmd Trắng Full Phom Nhỏ',6,468000,'Giày thể thao vải có dây Blue rất đẹp'),(6,'Giày Nike Jordan đang cao cổ',3,299000,'Giày Stan Smith xanh lá đế bạc sản xuất tại Trung Quốc'),(7,'Giầy Nmd Trắng Full Phom Nhỏ',6,199000,'Giày thể thao vải có dây Blue rất đẹp'),(8,'Giày Nike Jordan đang cao cổ',3,89000,'Giày Stan Smith xanh lá đế bạc sản xuất tại Trung Quốc'),(9,'Giầy Nmd Trắng Full Phom Nhỏ',6,109000,'Giày thể thao vải có dây Blue rất đẹp'),(10,'Giày Nike Jordan đang cao cổ',3,78000,'Giày Stan Smith xanh lá đế bạc sản xuất tại Trung Quốc'),(11,'Giầy Nmd Trắng Full Phom Nhỏ',6,234000,'Giày thể thao vải có dây Blue rất đẹp'),(12,'Giày Nike Jordan đang cao cổ',3,115000,'Giày Stan Smith xanh lá đế bạc sản xuất tại Trung Quốc'),(13,'Giầy Nmd Trắng Full Phom Nhỏ',6,198000,'Giày thể thao vải có dây Blue rất đẹp'),(14,'Giày Nike Jordan đang cao cổ',3,278000,'Giày Stan Smith xanh lá đế bạc sản xuất tại Trung Quốc'),(15,'Giầy Nmd Trắng Full Phom Nhỏ',6,289000,'Giày thể thao vải có dây Blue rất đẹp'),(16,'Giày Nike Jordan đang cao cổ',3,158000,'Giày Stan Smith xanh lá đế bạc sản xuất tại Trung Quốc'),(17,'Giầy Nmd Trắng Full Phom Nhỏ',6,236000,'Giày thể thao vải có dây Blue rất đẹp'),(18,'Giày Nike Jordan đang cao cổ',3,195000,'Giày Stan Smith xanh lá đế bạc sản xuất tại Trung Quốc'),(19,'Giầy Nmd Trắng Full Phom Nhỏ',6,168000,'Giày thể thao vải có dây Blue rất đẹp'),(20,'Giày Nike Jordan đang cao cổ',3,299000,'Giày Stan Smith xanh lá đế bạc sản xuất tại Trung Quốc'),(22,'Sản phẩm mẫu',4,239000,'Giày thể thao thời trang, cá tính mạnh mẽ'),(23,'Giày Sneaker thời trang xuất khẩu',6,1290000,'Giày Sneaker trẻ trung, lấy tại xưởng');
+INSERT INTO `product` VALUES (1,'iPhone 13 Mini - 512GB',1,26790000,'Điện thoại di động Apple iPhone 13 Mini - 512GB - Chính hãng VN/A','ip13mini.png'),(2,'iPhone 13 Pro Max - 512GB',1,37790000,'Điện thoại di động Apple iPhone 13 Pro Max - 512GB - Chính hãng VN/A','ip13promax.png'),(3,'iPhone 13 Pro Max - 1TB',1,42990000,'Điện thoại di động Apple iPhone 13 Pro Max - 1TB - Chính hãng VN/A','ip13promax.png'),(4,'iPhone 13 Pro Max - 256GB',1,33990000,'Điện thoại di động Apple iPhone 13 Pro Max - 256GB - Chính hãng VN/A','ip13promax.png'),(5,'iPhone 13 Pro Max - 128GB',1,30990000,'Điện thoại di động Apple iPhone 13 Pro Max - 128GB- Chính hãng VN/A','ip13promax.png'),(6,'iPhone 13 Pro - 128GB',1,27990000,'Điện thoại di động Apple iPhone 13 Pro - 128GB- Chính hãng VN/A','ip13pro.png'),(7,'iPhone 13 Pro - 256GB',1,29790000,'Điện thoại di động Apple iPhone 13 Pro - 256GB- Chính hãng VN/A','ip13pro.png'),(8,'iPhone 13 Pro - 512GB',1,35190000,'Điện thoại di động Apple iPhone 13 Pro - 512GB- Chính hãng VN/A','ip13pro.png'),(9,'iPhone 13 Pro - 1TB',1,40190000,'Điện thoại di động Apple iPhone 13 Pro - 1TB- Chính hãng VN/A','ip13pro.png'),(10,'iPhone 13 Mini - 256GB',1,21490000,'Điện thoại di động Apple iPhone 13 Mini - 256GB - Chính hãng VN/A','ip13mini.png'),(11,'iPhone 13 Mini - 128GB',1,18690000,'Điện thoại di động Apple iPhone 13 Mini - 128GB - Chính hãng VN/A','ip13mini.png'),(12,'iPhone 13 - 128GB',1,22590000,'Điện thoại di động Apple iPhone 13 - 128GB - Chính hãng VN/A','ip13.png'),(13,'iPhone 13 - 256GB',1,24090000,'Điện thoại di động Apple iPhone 13 - 256GB - Chính hãng VN/A','ip13.png'),(14,'iPhone 13 - 512GB',1,29490000,'Điện thoại di động Apple iPhone 13 - 512GB - Chính hãng VN/A','ip13.png'),(15,'Samsung Galaxy S21 Ultra 128GB 5G',3,21150000,'Điện thoại di động Samsung Galaxy S21 Ultra 128GB 5G - Chính hãng','s21ultra.png'),(16,'Samsung Galaxy S21 Ultra 256GB 5G',3,27350000,'Điện thoại di động Samsung Galaxy S21 Ultra 256GB 5G - Chính hãng','s21ultra.png'),(17,'Samsung Galaxy S21 Plus 256GB 5G',3,22450000,'Điện thoại di động Samsung Galaxy S21 Plus 256GB 5G - Chính hãng','s21plus.png'),(18,'Samsung Galaxy S21 Plus 128GB 5G',3,17350000,'Điện thoại di động Samsung Galaxy S21 Plus 256GB 5G - Chính hãng','s21plus.png'),(19,'Samsung Galaxy Note 20 Ultra',3,18490000,'Điện thoại di động Samsung Galaxy Note 20 Ultra - Chính hãng','note20ultra.png'),(20,'Xiaomi 11T 5G - 8GB/128GB',2,10490000,'Điện thoại di động Xiaomi 11T 5G - 8GB/128GB - Chính Hãng DGW','mi11t.png'),(22,'Xiaomi 11T Pro 5G - 12GB/256GB',2,14990000,'Điện thoại di động Xiaomi 11T Pro 5G - 12GB/256GB - Chính Hãng DGW','mi11tpro.png'),(23,'Xiaomi 11 Lite 5G NE - 8GB/128GB',2,9490000,'Điện thoại di động Xiaomi 11 Lite 5G NE - 8GB/128GB - Chính hãng DGW','mi11lite.png'),(24,'Xiaomi 11 Lite 5G NE - 8GB/128GB (Swarovski)',2,9490000,'Điện thoại di động Xiaomi 11 Lite 5G NE - 8GB/128GB (Phiên bản Swarovski)','mi11lite_swarvski.png'),(25,'Vivo X70 Pro',4,16990000,'Điện thoại di động Vivo X70 Pro - Chính hãng','x70.png');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -188,4 +189,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-10 12:11:25
+-- Dump completed on 2021-11-13  0:08:43
