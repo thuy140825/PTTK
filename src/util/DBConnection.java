@@ -12,9 +12,9 @@ public class DBConnection {
 	public static String DRIVER = DatabaseProperties.getData("driver");
 	
 	public static Connection getCon() {
-		try {
-			Class.forName(DRIVER);
-			return DriverManager.getConnection(URL, USER, PASSWORD);
+		try {                   
+                    Class.forName(DRIVER);
+                    return DriverManager.getConnection(URL, USER, PASSWORD);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

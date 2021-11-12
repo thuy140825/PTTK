@@ -82,7 +82,7 @@
 				<c:forEach items="${products}" var="product">
 					<div class="item-product">
 						<div class="item-wrap">
-							<img src="client/images/main-product01.jpg" class="thumb">
+							<img src="client/images/${product.img}" class="thumb">
 							<div class="info">
 								<div class="name">
 									<a href="product?id=${product.id}">${product.name}</a>

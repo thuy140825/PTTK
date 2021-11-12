@@ -43,8 +43,6 @@ public class LoginController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("login_user", username);
 			// dosfilter
-			session.setAttribute("spam", false);
-			session.setAttribute("count_spam", 0);
 			session.setAttribute("last_request", System.currentTimeMillis());
 			
 			// chuyen huong neu la admin
