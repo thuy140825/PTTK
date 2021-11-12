@@ -1,5 +1,6 @@
 package controller.client;
 
+import dao.CategoryDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,8 +11,11 @@ import javax.servlet.http.HttpSession;
 
 import dao.OrderDAO;
 import dao.UserDAO;
+import dao.impl.CategoryDAOImpl;
 import dao.impl.OrderDAOImpl;
 import dao.impl.UserDAOImpl;
+import java.util.List;
+import model.Category;
 import model.Order;
 import model.Customer;
 
@@ -25,7 +29,9 @@ public class OrderController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		CategoryDAO categoryDao = new CategoryDAOImpl();
+		List<Category> categories = categoryDao.getAllCategories();
+		request.setAttribute("categories", categories);
 		HttpSession session = request.getSession();
 		Order order = (Order) session.getAttribute("order"); // chi con truong hop truy cap truc tiep
 		String userName = session.getAttribute("login_user").toString(); // filter loc user roi, nen neu co thi la da dang nhap

@@ -18,7 +18,7 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	@Override
 	public Product addProduct(Product product) {
-		String sql = "INSERT INTO product(name, categoryID, price, details) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO product(name, categoryID, price, details, img) VALUES (?,?,?,?,?)";
 		try(
 			Connection conn = DBConnection.getCon();
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -28,6 +28,7 @@ public class ProductDAOImpl implements ProductDAO {
 			//ps.setInt(3, product.getBrand().getId());
 			ps.setDouble(3, product.getPrice());
 			ps.setString(4, product.getDetails());
+                        ps.setString(5, product.getImg());
 			ps.executeUpdate();
 			return product;
 		} catch (SQLException e) {
@@ -39,17 +40,17 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public void updateProduct(Product product) {
 		String sql = "UPDATE product SET name = ?, categoryID = ?,"
-				+ "price = ?, details = ? WHERE id = ?";
+				+ "price = ?, details = ?, img = ? WHERE id = ?";
 		try(
 			Connection conn = DBConnection.getCon();
 			PreparedStatement ps = conn.prepareStatement(sql);
 		){
 			ps.setString(1, product.getName());
 			ps.setInt(2, product.getCategory().getId());
-			//ps.setInt(3, product.getBrand().getId());
 			ps.setDouble(3, product.getPrice());
 			ps.setString(4, product.getDetails());
-			ps.setInt(5, product.getId());
+                        ps.setString(5, product.getImg());
+                        ps.setInt(6, product.getId());
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -83,10 +84,10 @@ public class ProductDAOImpl implements ProductDAO {
 				Product product = new Product();
 				product.setId(rs.getInt("id"));
 				product.setName(rs.getString("name"));
-				product.setCategory(new CategoryDAOImpl().getCategoryById(rs.getInt("categoryID")));
-				//product.setBrand(new BrandDAOImpl().getBrandById(rs.getInt("brandID")));
+				product.setCategory(new CategoryDAOImpl().getCategoryById(rs.getInt("categoryID")));	
 				product.setPrice(rs.getDouble("price"));
 				product.setDetails(rs.getString("details"));
+                                product.setImg(rs.getString("img"));
 				list.add(product);
 			}
 			rs.close();
@@ -111,9 +112,9 @@ public class ProductDAOImpl implements ProductDAO {
 				product.setId(rs.getInt("id"));
 				product.setName(rs.getString("name"));
 				product.setCategory(new CategoryDAOImpl().getCategoryById(rs.getInt("categoryID")));
-				//product.setBrand(new BrandDAOImpl().getBrandById(rs.getInt("brandID")));
 				product.setPrice(rs.getDouble("price"));
 				product.setDetails(rs.getString("details"));
+                                product.setImg(rs.getString("img"));
 				list.add(product);
 			}
 			return list;
@@ -138,9 +139,9 @@ public class ProductDAOImpl implements ProductDAO {
 				product.setId(rs.getInt("id"));
 				product.setName(rs.getString("name"));
 				product.setCategory(new CategoryDAOImpl().getCategoryById(rs.getInt("categoryID")));
-				//product.setBrand(new BrandDAOImpl().getBrandById(rs.getInt("brandID")));
 				product.setPrice(rs.getDouble("price"));
 				product.setDetails(rs.getString("details"));
+                                product.setImg(rs.getString("img"));
 				list.add(product);
 			}
 			return list;
@@ -179,9 +180,9 @@ public class ProductDAOImpl implements ProductDAO {
 				product.setId(rs.getInt("id"));
 				product.setName(rs.getString("name"));
 				product.setCategory(new CategoryDAOImpl().getCategoryById(rs.getInt("categoryID")));
-				//product.setBrand(new BrandDAOImpl().getBrandById(rs.getInt("brandID")));
 				product.setPrice(rs.getDouble("price"));
 				product.setDetails(rs.getString("details"));
+                                product.setImg(rs.getString("img"));
 				return product;
 			}
 		} catch (SQLException e) {
@@ -205,9 +206,9 @@ public class ProductDAOImpl implements ProductDAO {
 				product.setId(rs.getInt("id"));
 				product.setName(rs.getString("name"));
 				product.setCategory(new CategoryDAOImpl().getCategoryById(rs.getInt("categoryID")));
-				//product.setBrand(new BrandDAOImpl().getBrandById(rs.getInt("brandID")));
 				product.setPrice(rs.getDouble("price"));
 				product.setDetails(rs.getString("details"));
+                                product.setImg(rs.getString("img"));
 				list.add(product);
 			}
 			return list;
@@ -232,9 +233,9 @@ public class ProductDAOImpl implements ProductDAO {
 				product.setId(rs.getInt("id"));
 				product.setName(rs.getString("name"));
 				product.setCategory(new CategoryDAOImpl().getCategoryById(rs.getInt("categoryID")));
-				//product.setBrand(new BrandDAOImpl().getBrandById(rs.getInt("brandID")));
 				product.setPrice(rs.getDouble("price"));
 				product.setDetails(rs.getString("details"));
+                                product.setImg(rs.getString("img"));
 				list.add(product);
 			}
 			return list;

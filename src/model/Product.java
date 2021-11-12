@@ -8,20 +8,21 @@ public class Product implements Serializable {
 	private int id;
 	private String name;
 	private Category category;
-	//private Brand brand;
+	
 	private double price;
 	private String details;
-	
+	private String img;
 	public Product() {
 		super();
 	}
-	public Product(int id, String name, Category category, double price, String details) {
+	public Product(int id, String name, Category category, double price, String details, String img) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.category = category;
 		this.price = price;
 		this.details = details;
+                this.img = img;
 	}
 	public int getId() {
 		return id;
@@ -54,11 +55,12 @@ public class Product implements Serializable {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", price="
-				+ price + ", details=" + details + "]";
-	}
-	
-	
+
+        public String getImg() {
+            return img;
+        }
+
+        public void setImg(String img) {
+            this.img = img;
+        }
 }

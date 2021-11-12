@@ -1,5 +1,6 @@
 package controller.common;
 
+import dao.CategoryDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,10 @@ import javax.servlet.http.HttpSession;
 
 
 import dao.UserDAO;
+import dao.impl.CategoryDAOImpl;
 import dao.impl.UserDAOImpl;
+import java.util.List;
+import model.Category;
 import util.Common;
 import util.Constants;
 
@@ -23,6 +27,9 @@ public class LoginController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+                CategoryDAO categoryDao = new CategoryDAOImpl();
+		List<Category> categories = categoryDao.getAllCategories();
+		request.setAttribute("categories", categories);
 		request.getRequestDispatcher("/client/jsp/login.jsp").forward(request, response);
 	}
 
@@ -51,8 +58,6 @@ public class LoginController extends HttpServlet {
 		else {
 			request.setAttribute("errorMess", Constants.WRONG_USERNAME_OR_PASSWORD);
 			request.getRequestDispatcher("/client/jsp/login.jsp").forward(request, response);
-		}
-		
+		}		
 	}
-
 }
